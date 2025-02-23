@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab - 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8B5B29; 
+        }
+        .section {
+            border: 1px solid black;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            width: 45%;
+            vertical-align: top;
+        }
+        label {
+            color: white;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="main-heading">INST377 Lab - 4</h1>
+
+    <div class="section" id="alert-section" style="text-align: center; background-color: tan; border: 2px solid white;">
+        <form id="alert-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Enter your name">
+            <button type="button" onclick="alertMe()">Alert Me!</button>
+        </form>
+    </div>
+    
+
+    <div class="section" id="color-section" style="text-align: center; background-color: tan; border: 2px solid white;">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+
+    <div class="section" id="text-tester-section" style="text-align: center; background-color: tan; border: 2px solid white;">
+        <form id="text-tester-form">
+            <label for="text-input">Text Tester:</label>
+            <input type="text" id="text-input" required placeholder="Enter text">
+            <button type="button" onclick="validateText()">Validate Text</button>
+        </form>
+    </div>
+
+    <div class="section" id="add-text-section" style="text-align: center; background-color: tan; border: 2px solid white;">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+    <script>
+        let currentColor = 'blue';
+
+        function alertMe() {
+            const name = document.getElementById('name').value;
+            alert(`Hello ${name}!`);
+        }
+
+        function changeColor() {
+            currentColor = currentColor === 'grey' ? '#8B5B29' : 'grey';
+            document.body.style.backgroundColor = currentColor;
+        }
+
+        function validateText() {
+            const text = document.getElementById('text-input').value;
+            const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert('How about...Nah');
+            } else {
+                alert('Text is valid.');
+            }
+        }
+
+        function addText() {
+            const heading = document.getElementById('main-heading');
+            heading.innerHTML += ' Add Text';
+        }
+    </script>
+
+</body>
+</html>
